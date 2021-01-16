@@ -1,0 +1,156 @@
+/*Text Editor*/
+
+body {
+	font-family: 'Fira Code', monospace;
+	color: white;
+}
+
+textarea {
+	color: #161616;
+	font-family: 'Fira Code', monospace;
+	background-color: #ffb7c5;
+	border-top: solid 1px white;
+}
+
+.content {
+	border-top: solid 1px white;
+	background-color: #ffbfcc;
+	color: #161616;
+}
+
+div.input {
+	background-color: #ffa1b3;
+}
+
+div.output {
+	background-color: #ffa8b9;
+}
+
+/*Menu*/
+
+#menu {
+	background-color: #ff849c;
+}
+
+/*Popup*/
+
+.popup {
+	background-color: #ffa1b3;
+}
+
+/*Settings*/
+
+hr.settings {
+	border: 0;
+	height: 1px;
+	background-color: white;
+}
+
+div.settings_menu {
+	border-right: solid 1px white;
+}
+
+	/*Theme Settings*/
+
+div.vignette {
+	background-color: #ffa8b9;
+}
+
+/*--- // --- // --- // --- */
+
+/*Text Render*/
+	
+	/*Link*/
+
+a {
+	color: #d31fff;
+}
+
+	/*Blockquote*/
+
+blockquote {
+	color: #8f6767;
+}
+
+	/*HR Bar*/
+
+hr {
+	border: 0;
+	height: 1px;
+	background-color: #d49b9b;
+}
+
+	/*Table*/
+
+table {
+	background-color: #ffbfbf;
+}
+
+tr:nth-child(even) {
+	background: #ffb5b5;
+}
+
+thead {
+	background: #ffa8a8;
+}
+
+	/*Code*/
+
+pre {
+	background-color: #eba4a4;
+    border: 1px solid pink;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+code {
+	color: white;
+    font-family: 'Fira Code', monospace;
+    background-color: #eba4a4;
+}
+
+pre:hover code {
+	background-color: #f5abab;
+}
+
+pre:hover {
+	background-color: #f5abab;
+}
+
+code:hover {
+	background-color: #f5abab;
+}
+
+/*--- // --- // --- // --- */
+
+/*Text Selector*/
+
+::selection {
+	background-color: #ff7575;
+	color: white;
+}
+
+::-moz-selection {
+	background-color: #6bffe2;
+	color: white;
+}
+
+/*Overflow*/
+
+::-webkit-scrollbar {
+	width: 12px;
+}
+
+::-webkit-scrollbar-track {
+	background: #ff9999;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #ff8080;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #ff8a8a;
+}
+
+C'EST PAS BEAU !

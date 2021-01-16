@@ -1,0 +1,168 @@
+body {
+	font-family: 'Fira Code', monospace;
+}
+
+/*#textBox {
+	position: static;
+	background-color: green;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+}*/
+
+h3.title {
+	text-align: center;
+}
+
+textarea {
+	resize: none;
+	box-sizing: border-box;
+	width: 100%;
+	border: none;
+	height: auto;
+	position: absolute;
+	bottom: 0;
+	top: 60px;
+	padding: 10px;
+	outline: none;
+}
+
+.content {
+	overflow: auto;
+	box-sizing: border-box;
+	width: 100%;
+	border: none;
+	height: auto;
+	position: absolute;
+	bottom: 0;
+	top: 60px;
+	padding: 10px;
+}
+
+div.input {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 50%;
+	bottom: 0;
+}
+
+div.output {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 50%;
+	bottom: 0;
+}
+
+/*Menu*/
+
+img.icons {
+	width: 35px;
+	cursor: pointer;
+}
+
+#menu {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
+	padding: 2px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+/*Settings*/
+
+#settings_popup {
+	display: none;
+	z-index: 10;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50%;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+h3.settings {
+	text-align: center;
+}
+
+div.settings_menu {
+	display: inline-block;
+	height: 300px;
+	padding: 10px;
+	min-width: 120px;
+	float: left;
+}
+
+div.settings_board {
+	display: inline-block;
+	padding: 10px;
+}
+
+#settings_general {
+	display: block;
+}
+
+#settings_theme {
+	display: none;
+	overflow: auto;
+}
+
+#settings_about {
+	display: none;
+}
+
+span.settings_menu:hover {
+	cursor: pointer;
+	font-weight: bold;
+}
+
+	/*Theme Settings*/
+
+div.vignette {
+	width: 250px;
+	text-align: center;
+	border-radius: 4px;
+	display: inline-block;
+	margin: 5px;
+	cursor: pointer;
+}
+
+img.vignette {
+	width: 250px;
+	border-radius: 4px;
+}
+
+.vignette_container {
+	width: 605px;
+	overflow: auto;
+	height: 300px;
+}
+
+.open_doc_popup {
+	z-index: 10;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 5px;
+	border-radius: 5px;
+	text-align: center;
+	display: none;
+}
+
+label.input_file {
+	font-weight: bold;
+}
+
+input {
+	outline: none;
+}

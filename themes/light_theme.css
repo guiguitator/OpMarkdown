@@ -1,0 +1,137 @@
+/*Text Editor*/
+
+body {
+	font-family: 'Fira Code', monospace;
+	color: black;
+}
+
+textarea {
+	color: black;
+	font-family: 'Fira Code', monospace;
+	background-color: white;
+	border-top: solid 1px black;
+}
+
+.content {
+	border-top: solid 1px black;
+	background-color: #f7f7f7;
+}
+
+div.input {
+	background-color: white;
+}
+
+div.output {
+	background-color: #f7f7f7;
+}
+
+/*Menu*/
+
+#menu {
+	background-color: #dbdbdb;
+}
+
+/*Popup*/
+
+.popup {
+	background-color: #ebebeb;
+}
+
+/*Settings*/
+
+hr.settings {
+	border: 0;
+	height: 1px;
+	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+div.settings_menu {
+	border-right: solid 1px black;
+}
+
+	/*Theme Settings*/
+
+div.vignette {
+	background-color: white;
+}
+
+/*--- // --- // --- // --- */
+
+/*Text Render*/
+	
+	/*Link*/
+
+a {
+	color: blue;
+}
+
+	/*Blockquote*/
+
+blockquote {
+	color: grey;
+}
+
+	/*HR Bar*/
+
+hr {
+	border: 0;
+	height: 1px;
+	background-color: grey;
+}
+
+	/*Table*/
+
+tr:nth-child(even) {
+	background: #F3F3F3;
+}
+
+thead {
+	background: #E5E5E5;
+}
+
+	/*Code*/
+
+pre {
+	background-color: #dddddd;
+    border: 1px solid #c4c4c4;
+    border-radius: 2px;
+    padding: 2px;
+}
+
+code {
+	color: black;
+    font-family: 'Fira Code', monospace;
+    background-color: #dddddd;
+}
+
+/*--- // --- // --- // --- */
+
+/*Text Selector*/
+
+::selection {
+	background-color: #444;
+	color: white;
+}
+
+::-moz-selection {
+	background-color: #444;
+	color: white;
+}
+
+/*Overflow*/
+
+::-webkit-scrollbar {
+	width: 12px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #888888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555555;
+}

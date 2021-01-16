@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OpMarkdown</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+    <!-- Librairies -->
+  <script src="librairies/react.js"></script>
+  <script src="librairies/react-dom.js"></script>
+  <script src="librairies/babel.min.js"></script>
+  <script src="librairies/remarkable.js"></script>
+  <script src="librairies/FileSaver.js"></script>
+    <!-- Theme -->
+  <link id="theme" rel="stylesheet" type="text/css" href="themes/light_theme.css">
+  <script type="text/javascript" src="theme.js"></script>
+    <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+      <!-- Fira Code -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="menu">
+    <img id="open" onclick="displayPopupOpenDocument()" class="icons" src="images/open.png">
+    <img id="new" onclick="newDocument()" class="icons" src="images/new.png">
+    <img id="save" onclick="download()" class="icons" src="images/save.png">
+    <img id="settings" onclick="displaySettings()" class="icons" src="images/settings.png">
+  </div>
+  <div id="textBox">
+    Error, please contact me on <a href="https://twitter.com/guiguitator_">Twitter</a> !
+  </div>
+<script type="text/jsx">
+class MarkdownEditor extends React.Component {
+      constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.state = {value: 'Some **amazing** text...'};
+      }
+      handleChange(e) {
+        this.setState({value: e.target.value});
+      }
+      getRawMarkup() {
+            var md = new Remarkable();
+            return { __html: md.render(this.state.value) };
+          }
+      render() {
+        return (
+          <div className="MarkdownEditor">
+            <div className="input">
+           		<h3 className="title">Input</h3>
+            		<textarea id="textarea" spellCheck="false" onChange={this.handleChange} defaultValue={this.state.value} />
+            </div>
+            <div className="output">
+           		<h3 className="title">Output</h3>
+            		<div className="content" dangerouslySetInnerHTML={this.getRawMarkup()} />
+            </div>
+          </div>
+        );
+      }
+}
+ReactDOM.render(<MarkdownEditor />, textBox);
+</script>
+  <div id="openDocument_popup" class="open_doc_popup popup">
+    <label class="input_file" for="file">Open a file (.txt) :</label>
+          <br>
+          <br>
+      <input type="file"  name="file" id="input_file" class="input_file">
+          <br>
+          <br>
+        <button onclick="openDocument()" class="input_file">Open</button>
+  </div>
+  <div id="settings_popup" class="popup">
+    <h3 class="settings">Settings</h3>
+      <hr class="settings">
+        <div class="settings_menu">
+          <span class="settings_menu" onclick="displaySettingsGeneral()">General</span>
+            <br>
+          <span class="settings_menu" onclick="displaySettingsTheme()">Theme</span>
+            <br>
+          <span class="settings_menu" onclick="displaySettingsAbout()">About</span>
+        </div>
+        <div class="settings_board">
+          <div id="settings_general">
+            <b>(Under developpement...)</b>
+          </div>
+          <div id="settings_theme">
+            <div class="vignette_container">
+              <div onclick="LightTheme()" class="vignette">
+                <img class="vignette" src="images/screenshots/light_theme.png">
+                  <span>Light Theme</span>
+              </div>
+              <div onclick="DarkTheme()" class="vignette">
+                <img class="vignette" src="images/screenshots/dark_theme.png">
+                  <span>Dark Theme</span>
+              </div>
+              <div onclick="HackingConsole()" class="vignette">
+                <img class="vignette" src="images/screenshots/hacking_console.png">
+                  <span>Hacking Console</span>
+              </div>
+              <div onclick="CherryBlossom()" class="vignette">
+                <img class="vignette" src="images/screenshots/cherry_blossom.png">
+                  <span>Cherry Blossom</span>
+              </div>
+            </div>
+          </div>
+          <div id="settings_about">
+            <b>(Under developpement...)</b>
+          </div>
+        </div>
+  </div>
+<script type="text/javascript">
+  function download() {
+  var save = document.getElementById("textarea").value;
+  var blob = new Blob([save], {
+    type: "text/plain;charset=utf-8"
+  });
+  saveAs(blob, "sample-file.txt");
+}
+
+  // New Document
+
+  function newDocument() {
+    document.getElementById("textarea").value="New document.";
+  }
+
+  // Open Document
+
+  function displayPopupOpenDocument() {
+    document.getElementById("openDocument_popup").style.display="block";
+  }
+
+  function openDocument() {
+      document.getElementById("openDocument_popup").style.display="none";
+      var fileToLoad = document.getElementById("input_file").files[0]; 
+      var fileReader = new FileReader();
+      fileReader.onload = function(fileLoadedEvent) {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("textarea").value = textFromFileLoaded;
+      };
+      fileReader.readAsText(fileToLoad, "UTF-8");
+  }
+
+  // Settings
+
+var i = 0;
+
+  function displaySettings() {
+    if (i == 0) {
+      document.getElementById("settings_popup").style.display="block";
+        i++;
+    } else if (i == 1) {
+      document.getElementById("settings_popup").style.display="none";
+        i--;
+    }
+  }
+
+  function displaySettingsGeneral() {
+    document.getElementById("settings_general").style.display="block";
+    document.getElementById("settings_theme").style.display="none";
+    document.getElementById("settings_about").style.display="none";
+  }
+
+  function displaySettingsTheme() {
+    document.getElementById("settings_general").style.display="none";
+    document.getElementById("settings_theme").style.display="block";
+    document.getElementById("settings_about").style.display="none";
+  }
+
+  function displaySettingsAbout() {
+    document.getElementById("settings_general").style.display="none";
+    document.getElementById("settings_theme").style.display="none";
+    document.getElementById("settings_about").style.display="block";
+  }
+</script>
+</body>
+<html>
