@@ -1,137 +1,44 @@
-/*Text Editor*/
+/* App Layout : */
 
-body {
-	font-family: 'Fira Code', monospace;
-	color: black;
-}
-
-textarea {
-	color: black;
-	font-family: 'Fira Code', monospace;
-	background-color: white;
-	border-top: solid 1px black;
-}
-
-.content {
-	border-top: solid 1px black;
-	background-color: #f7f7f7;
-}
-
-div.input {
-	background-color: white;
-}
-
-div.output {
-	background-color: #f7f7f7;
-}
-
-/*Menu*/
-
-#menu {
-	background-color: #dbdbdb;
-}
-
-/*Popup*/
-
-.popup {
-	background-color: #ebebeb;
-}
-
-/*Settings*/
-
-hr.settings {
-	border: 0;
-	height: 1px;
-	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-}
-
-div.settings_menu {
-	border-right: solid 1px black;
-}
-
-	/*Theme Settings*/
-
-div.vignette {
-	background-color: white;
-}
-
-/*--- // --- // --- // --- */
-
-/*Text Render*/
+body {color: #505050;}
+header {background-color: white;}
 	
-	/*Link*/
-
-a {
-	color: blue;
+	/* Input */
+#input {
+	color: #505050;
+	background-color: #fcfcfc;
 }
+#input::placeholder {color: gray;}
 
-	/*Blockquote*/
-
-blockquote {
-	color: grey;
+	/* Output */
+#output {
+	color: #282828;
+	background-color: #fefefe;
 }
+	
+	/* Modal Style */
+.modal {background-color: white;}
+.nav-icon {color: #161616;}
+	
+	/* Themes Showcase*/
+div.object {background-color: #f7f7f7;}
+div.object:hover {background-color: #fcfcfc;}
 
-	/*HR Bar*/
+/* Output Tag : */
 
-hr {
-	border: 0;
-	height: 1px;
-	background-color: grey;
-}
+#output blockquote {color: gray;}
+#output code {background-color: rgba(0,0,0, 0.05);}
+#output hr {background-color: rgba(0,0,0, 0.1);}
+#output pre {background-color: rgba(0,0,0, 0.02);}
+#output a {color: #2f54eb;}
+#output a:hover {color: #597ef7;}
+#output table {background-color: white;}
+#output thead tr th {background-color: rgba(0,0,0, 0.1);}
+#output tbody tr:nth-child(even) td {background-color: rgba(0,0,0, 0.05);}
 
-	/*Table*/
-
-tr:nth-child(even) {
-	background: #F3F3F3;
-}
-
-thead {
-	background: #E5E5E5;
-}
-
-	/*Code*/
-
-pre {
-	background-color: #dddddd;
-    border: 1px solid #c4c4c4;
-    border-radius: 2px;
-    padding: 2px;
-}
-
-code {
-	color: black;
-    font-family: 'Fira Code', monospace;
-    background-color: #dddddd;
-}
-
-/*--- // --- // --- // --- */
-
-/*Text Selector*/
+/* Selection Highlight */
 
 ::selection {
-	background-color: #444;
+	background-color: #3e3d32;
 	color: white;
-}
-
-::-moz-selection {
-	background-color: #444;
-	color: white;
-}
-
-/*Overflow*/
-
-::-webkit-scrollbar {
-	width: 12px;
-}
-
-::-webkit-scrollbar-track {
-	background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-	background: #888888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-	background: #555555;
 }

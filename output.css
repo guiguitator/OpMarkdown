@@ -1,0 +1,131 @@
+:root {
+	--margin_title: 0.5rem;
+	--margin_text: 0.5rem;
+}
+
+#output * {
+	overflow-wrap: break-word;
+}
+
+#output h1 {
+	font-size: 2rem;
+	margin-bottom: var(--margin_title);
+}
+
+#output h2 {
+	font-size: 1.7rem;
+	margin-bottom: var(--margin_title);
+}
+
+#output h3 {
+	font-size: 1.5rem;
+	margin-bottom: var(--margin_title);
+}
+
+#output h4 {
+	font-size: 1.3rem;
+	margin-bottom: var(--margin_title);
+}
+
+#output h5 {
+	font-size: 1.1rem;
+	margin-bottom: var(--margin_title);
+}
+
+#output h6 {
+	font-size: 0.8rem;
+	margin-bottom: var(--margin_title);
+	margin-top: var(--margin_title);
+}
+
+#output p {
+	font-size: 1rem;
+	margin-top: var(--margin_text);
+	margin-bottom: var(--margin_text);
+}
+
+#output hr {
+	height: 0.1rem;
+	border: none;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+#output ul {
+	margin-top: var(--margin_text);
+	margin-bottom: var(--margin_text);
+	padding-left: 1rem;
+}
+
+#output li {
+	list-style: inside;
+}
+
+#output li ul {
+	padding-left: 1.5rem;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#output li ul li {
+	list-style: circle inside;
+}
+
+#output li ul li ul {
+	padding-left: 2rem;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#output li ul li ul li {
+	list-style: square inside;
+}
+
+#output img {
+	max-width: 100%;
+}
+
+#output .center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#output blockquote {
+	margin-left: 0.5rem;
+	border-left: solid 0.2rem #ccc;
+	border-radius: 0.5rem;
+	padding-left: 0.5rem;
+}
+
+#output code {
+	padding: 0.1rem;
+	border-radius: 0.2rem;
+}
+
+#output pre {
+	padding: 0.2rem;
+	border-radius: 0.2rem;
+	box-shadow: rgb(0 0 0 / 5%) 0px 1px 2px 0px;
+	font-family: inherit;
+	overflow: auto;
+}
+
+#output pre code {
+	background-color: transparent !important;
+	font-family: inherit;
+}
+
+#output a {
+	transition-duration: 0.15s;
+}
+
+#output table {
+	padding: 0.1rem;
+	box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px 0px, rgb(0 0 0 / 6%) 0px 1px 2px 0px;
+	border-radius: 0.1rem;
+}
+
+#output thead tr th {
+	padding: 0.2rem;
+}

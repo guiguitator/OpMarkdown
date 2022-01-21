@@ -1,175 +1,105 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>OpMarkdown</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta charset="utf-8">
-    <!-- Librairies -->
-  <script src="librairies/react.js"></script>
-  <script src="librairies/react-dom.js"></script>
-  <script src="librairies/babel.min.js"></script>
-  <script src="librairies/remarkable.js"></script>
-  <script src="librairies/FileSaver.js"></script>
-    <!-- Theme -->
-  <link id="theme" rel="stylesheet" type="text/css" href="themes/light_theme.css">
-  <script type="text/javascript" src="theme.js"></script>
-    <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-      <!-- Fira Code -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+	<title>OpMarkdown</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="output.css">
+	<script type="text/javascript" src="script.js" defer></script>
+	<link id="theme" rel="stylesheet" type="text/css" href="./themes/light_theme.css">
+		<!-- Librairies -->
+	<script type="text/javascript" src="./librairies/marked.js" defer></script>
+	<script type="text/javascript" src="./librairies/FileSaver.js" defer></script>
 </head>
 <body>
-  <div id="menu">
-    <img id="open" onclick="displayPopupOpenDocument()" class="icons" src="images/open.png">
-    <img id="new" onclick="newDocument()" class="icons" src="images/new.png">
-    <img id="save" onclick="download()" class="icons" src="images/save.png">
-    <img id="settings" onclick="displaySettings()" class="icons" src="images/settings.png">
-  </div>
-  <div id="textBox">
-    Error, please contact me on <a href="https://twitter.com/guiguitator_">Twitter</a> !
-  </div>
-<script type="text/jsx">
-class MarkdownEditor extends React.Component {
-      constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.state = {value: 'Some **amazing** text...'};
-      }
-      handleChange(e) {
-        this.setState({value: e.target.value});
-      }
-      getRawMarkup() {
-            var md = new Remarkable();
-            return { __html: md.render(this.state.value) };
-          }
-      render() {
-        return (
-          <div className="MarkdownEditor">
-            <div className="input">
-           		<h3 className="title">Input</h3>
-            		<textarea id="textarea" spellCheck="false" onChange={this.handleChange} defaultValue={this.state.value} />
-            </div>
-            <div className="output">
-           		<h3 className="title">Output</h3>
-            		<div className="content" dangerouslySetInnerHTML={this.getRawMarkup()} />
-            </div>
-          </div>
-        );
-      }
-}
-ReactDOM.render(<MarkdownEditor />, textBox);
-</script>
-  <div id="openDocument_popup" class="open_doc_popup popup">
-    <label class="input_file" for="file">Open a file (.txt) :</label>
-          <br>
-          <br>
-      <input type="file"  name="file" id="input_file" class="input_file">
-          <br>
-          <br>
-        <button onclick="openDocument()" class="input_file">Open</button>
-  </div>
-  <div id="settings_popup" class="popup">
-    <h3 class="settings">Settings</h3>
-      <hr class="settings">
-        <div class="settings_menu">
-          <span class="settings_menu" onclick="displaySettingsGeneral()">General</span>
-            <br>
-          <span class="settings_menu" onclick="displaySettingsTheme()">Theme</span>
-            <br>
-          <span class="settings_menu" onclick="displaySettingsAbout()">About</span>
-        </div>
-        <div class="settings_board">
-          <div id="settings_general">
-            <b>(Under developpement...)</b>
-          </div>
-          <div id="settings_theme">
-            <div class="vignette_container">
-              <div onclick="LightTheme()" class="vignette">
-                <img class="vignette" src="images/screenshots/light_theme.png">
-                  <span>Light Theme</span>
-              </div>
-              <div onclick="DarkTheme()" class="vignette">
-                <img class="vignette" src="images/screenshots/dark_theme.png">
-                  <span>Dark Theme</span>
-              </div>
-              <div onclick="HackingConsole()" class="vignette">
-                <img class="vignette" src="images/screenshots/hacking_console.png">
-                  <span>Hacking Console</span>
-              </div>
-              <div onclick="CherryBlossom()" class="vignette">
-                <img class="vignette" src="images/screenshots/cherry_blossom.png">
-                  <span>Cherry Blossom</span>
-              </div>
-            </div>
-          </div>
-          <div id="settings_about">
-            <b>(Under developpement...)</b>
-          </div>
-        </div>
-  </div>
-<script type="text/javascript">
-  function download() {
-  var save = document.getElementById("textarea").value;
-  var blob = new Blob([save], {
-    type: "text/plain;charset=utf-8"
-  });
-  saveAs(blob, "sample-file.txt");
-}
-
-  // New Document
-
-  function newDocument() {
-    document.getElementById("textarea").value="New document.";
-  }
-
-  // Open Document
-
-  function displayPopupOpenDocument() {
-    document.getElementById("openDocument_popup").style.display="block";
-  }
-
-  function openDocument() {
-      document.getElementById("openDocument_popup").style.display="none";
-      var fileToLoad = document.getElementById("input_file").files[0]; 
-      var fileReader = new FileReader();
-      fileReader.onload = function(fileLoadedEvent) {
-        var textFromFileLoaded = fileLoadedEvent.target.result;
-        document.getElementById("textarea").value = textFromFileLoaded;
-      };
-      fileReader.readAsText(fileToLoad, "UTF-8");
-  }
-
-  // Settings
-
-var i = 0;
-
-  function displaySettings() {
-    if (i == 0) {
-      document.getElementById("settings_popup").style.display="block";
-        i++;
-    } else if (i == 1) {
-      document.getElementById("settings_popup").style.display="none";
-        i--;
-    }
-  }
-
-  function displaySettingsGeneral() {
-    document.getElementById("settings_general").style.display="block";
-    document.getElementById("settings_theme").style.display="none";
-    document.getElementById("settings_about").style.display="none";
-  }
-
-  function displaySettingsTheme() {
-    document.getElementById("settings_general").style.display="none";
-    document.getElementById("settings_theme").style.display="block";
-    document.getElementById("settings_about").style.display="none";
-  }
-
-  function displaySettingsAbout() {
-    document.getElementById("settings_general").style.display="none";
-    document.getElementById("settings_theme").style.display="none";
-    document.getElementById("settings_about").style.display="block";
-  }
-</script>
+	<header>
+		<p class="title">Input</p>
+		<p class="title">Output</p>
+		<div class="menu-icon" onclick="displayMenu(true)">
+			<svg width="100%" height="100%" fill="none" viewBox="0 0 24 24">
+				<path fill="currentColor" d="M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12Z"></path>
+				<path fill="currentColor" d="M9 12C9 12.5523 8.55228 13 8 13C7.44772 13 7 12.5523 7 12C7 11.4477 7.44772 11 8 11C8.55228 11 9 11.4477 9 12Z"></path>
+				<path fill="currentColor" d="M17 12C17 12.5523 16.5523 13 16 13C15.4477 13 15 12.5523 15 12C15 11.4477 15.4477 11 16 11C16.5523 11 17 11.4477 17 12Z"></path>
+			</svg>
+		</div>
+	</header>
+	<div class="wrapper">
+		<textarea id="input" oninput="updateRender()" autofocus placeholder="Write something..." spellcheck="false"></textarea>
+		<div id="output"></div>
+	</div>
+	<!-- Menu -->
+	<div id="menu" class="modal">
+		<div class="menu-title">
+			<h3>Menu</h3>
+			<img class="quit-icon" src="./assets/close.svg" onclick="displayMenu(false)">
+		</div>
+		<div class="nav" onclick="displayMenu(false); displayModal('new');">
+			<div class="nav-icon"><img src="./assets/new.svg"></div><span>New file</span>
+		</div>
+		<div class="nav" onclick="displayMenu(false); displayModal('save');">
+			<div class="nav-icon"><img src="./assets/download.svg"></div><span>Save document</span>
+		</div>
+		<div class="nav" onclick="displayMenu(false); displayModal('open');">
+			<div class="nav-icon"><img src="./assets/open.svg"></div><span>Open file</span>
+		</div>
+		<div class="nav" onclick="displayMenu(false); displayModal('export');">
+			<div class="nav-icon"><img src="./assets/export.svg"></div><span>Export document</span>
+		</div>
+		<div class="nav" onclick="displayMenu(false); displayModal('theme');">
+			<div class="nav-icon"><img src="./assets/themes.svg"></div><span>Change theme</span>
+		</div>
+	</div>
+	<!-- Modals -->
+	<div id="modal-new" class="modal" style="display: none;">
+		<h3>Create a new file</h3>
+		<p class="modal-text">Are you sure you want to create a new file ? Any unsaved document will be lost.</p>
+		<div class="wrapper">
+			<button style="width: 50%;" class="btn-accept" onclick="displayModal(false); newDocument()">Yes</button>
+			<button style="width: 50%;" class="btn-decline" onclick="displayModal(false);">No</button>
+		</div>
+	</div>
+	<div id="modal-open" class="modal" style="display: none;">
+		<h3>Open a file</h3>
+		<p class="modal-text">Select a file to open. Any unsaved document will be lost.</p>
+		<div class="wrapper">
+			<input id="input_open" type="file">
+		</div>
+		<div class="wrapper">
+			<button style="width: 50%;" class="btn-open" onclick="displayModal(false); openDocument();">Open</button>
+		</div>
+	</div>
+	<div id="modal-save" class="modal" style="display: none;">
+		<h3>Save the document</h3>
+		<p class="modal-text">Fill in the name of your document and save it.</p>
+		<div class="wrapper">
+			<input type="text" id="save_name" placeholder="Enter document name" maxlength="32" autocomplete="off" spellcheck="false">
+		</div>
+		<div class="wrapper">
+			<button style="width: 50%;" class="btn-save" onclick="displayModal(false); saveDocument()">Save</button>
+		</div>
+	</div>
+	<div id="modal-export" class="modal" style="display: none;">
+		<h3>Export the output</h3>
+		<p class="modal-text">Fill in the name of your document and export it to HTML Format.</p>
+		<div class="wrapper">
+			<input type="text" id="export_name" placeholder="Enter document name" maxlength="32" autocomplete="off" spellcheck="false">
+		</div>
+		<div class="wrapper">
+			<button style="width: 50%;" class="btn-export" onclick="displayModal(false); exportDocument()">Export</button>
+		</div>
+	</div>
+	<div id="modal-theme" class="modal" style="display: none;">
+		<h3>Change app theme</h3>
+		<p class="modal-text">Choose a theme to apply, you can also create it from scratch using CSS.</p>
+		<div class="wrapper">
+			<input style="width: 90%;" type="text" id="search_theme" placeholder="Search for a theme" maxlength="50" autocomplete="off" spellcheck="false">
+		</div>
+		<div id="showcase" style="flex-wrap: wrap; margin-top: 0.4rem;" class="wrapper">
+			<!-- Generate with JavaScript -->
+		</div>
+		<div class="wrapper">
+			<button style="width: 50%;" class="btn-decline" onclick="displayModal(false);">Close</button>
+		</div>
+	</div>
 </body>
-<html>
+</html>

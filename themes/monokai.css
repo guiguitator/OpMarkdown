@@ -1,0 +1,34 @@
+/* App Layout : */
+
+body {color: #505050;}
+header {background-color: white;}
+	
+	/* Input */
+#input {
+	color: #505050;
+	background-color: #fcfcfc;
+}
+#input::placeholder {color: gray;}
+
+	/* Output */
+#output {
+	color: #282828;
+	background-color: #fefefe;
+}
+	
+	/* Modal Style */
+.modal {background-color: white;}
+.nav-icon {color: #161616;}
+	
+	/* Themes Showcase*/
+div.object {background-color: #f7f7f7;}
+div.object:hover {background-color: #fcfcfc;}
+
+/* Output Tag : */
+
+#output blockquote {color: gray;}
+#output code {background-color: rgba(0,0,0, 0.05);}
+#output hr {background-color: rgba(0,0,0, 0.1);}
+#output pre {background-color: rgba(0,0,0, 0.02);}
+#output a {color: #2f54eb;}
+#output a:hover {color: #597ef7;}
