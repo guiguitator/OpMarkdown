@@ -1,34 +1,48 @@
 /* App Layout : */
 
-body {color: #505050;}
-header {background-color: white;}
+body {color: #f1f1f1;}
+header {background-color: #272822;}
+svg.icon {color: white;}
+.modal {background-color: #272822;}
 	
 	/* Input */
 #input {
-	color: #505050;
-	background-color: #fcfcfc;
+	color: #f8f8f2;
+	background-color: #272822;
 }
-#input::placeholder {color: gray;}
+#input::placeholder {color: #75715e;}
 
 	/* Output */
 #output {
-	color: #282828;
-	background-color: #fefefe;
+	color: #F8F8F0;
+	background-color: #2d2e27;
 }
-	
-	/* Modal Style */
-.modal {background-color: white;}
-.nav-icon {color: #161616;}
-	
+
 	/* Themes Showcase*/
-div.object {background-color: #f7f7f7;}
-div.object:hover {background-color: #fcfcfc;}
+div.object {background-color: #23241e;}
+div.object:hover {background-color: #20211c;}
 
 /* Output Tag : */
 
-#output blockquote {color: gray;}
-#output code {background-color: rgba(0,0,0, 0.05);}
-#output hr {background-color: rgba(0,0,0, 0.1);}
-#output pre {background-color: rgba(0,0,0, 0.02);}
-#output a {color: #2f54eb;}
-#output a:hover {color: #597ef7;}
+#output blockquote {color: #75715e;}
+#output code {background-color: #3b3a32;}
+#output hr {background-color: rgba(0,0,0, 0.15);}
+#output pre {background-color: rgba(0,0,0, 0.2);}
+#output a {color: #66d9eF; text-decoration: none;}
+#output a:hover {color: #66b6ef;}
+#output table {background-color: #272822;}
+#output thead tr th {background-color: rgba(0,0,0, 0.3);}
+#output tbody tr:nth-child(even) td {background-color: rgba(0,0,0, 0.15);}
+
+/* Selection Highlight */
+
+::selection {
+	background-color: #3e3d32;
+	color: white;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar-track {background: rgba(0,0,0, 0.1);}
+::-webkit-scrollbar-thumb {background: rgba(0,0,0, 0.3);}
+::-webkit-scrollbar-thumb:hover {background: rgba(0,0,0, 0.2);}

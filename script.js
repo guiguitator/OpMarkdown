@@ -1,7 +1,7 @@
 const input = document.getElementById('input');
 const output = document.getElementById('output');
 
-const themes = ['light_theme'];
+const themes = ['light_theme', 'monokai'];
 
 function updateRender() {
 	marked.use({
@@ -20,6 +20,11 @@ function updateRender() {
 	}
 	for (var b = 0; b < output.getElementsByTagName("a").length; b++) {
 		output.getElementsByTagName("a")[b].setAttribute("target", '_blank');
+	}
+	for (var s = 0; s < output.getElementsByTagName("ol").length; s++) {
+		if (output.getElementsByTagName("ol")[s].getAttribute('start') == null) {
+			output.getElementsByTagName("ol")[s].setAttribute('start', '1');
+		}
 	}
 }
 
@@ -108,7 +113,7 @@ function displayTheme() {
 	for (var g = 0; g < themes.length; g++) {
 		document.getElementById('showcase').insertAdjacentHTML('beforeend', `
 			<div class="object" onclick="changeTheme('${themes[g]}');">
-				<img src="https://opmarkdown.netlify.app/images/screenshots/${themes[g]}.png">
+				<img src="./assets/vignettes/${themes[g]}.png">
 				<p>${themes[g].replace('_', ' ')}</p>
 			</div>
 		`)

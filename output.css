@@ -51,7 +51,7 @@
 	margin-bottom: 0.5rem;
 }
 
-#output ul {
+#output ul, ol {
 	margin-top: var(--margin_text);
 	margin-bottom: var(--margin_text);
 	padding-left: 1rem;
@@ -69,6 +69,10 @@
 
 #output li ul li {
 	list-style: circle inside;
+}
+
+#output ol li {
+	list-style: decimal inside;
 }
 
 #output li ul li ul {
@@ -93,8 +97,7 @@
 
 #output blockquote {
 	margin-left: 0.5rem;
-	border-left: solid 0.2rem #ccc;
-	border-radius: 0.5rem;
+	border-left: solid 0.2rem currentColor;
 	padding-left: 0.5rem;
 }
 
@@ -128,4 +131,8 @@
 
 #output thead tr th {
 	padding: 0.2rem;
+}
+
+#output tbody tr td {
+	padding: 0.15rem;
 }

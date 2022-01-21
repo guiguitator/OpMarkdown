@@ -2,6 +2,8 @@
 
 body {color: #505050;}
 header {background-color: white;}
+svg.icon {color: black;}
+.modal {background-color: white;}
 	
 	/* Input */
 #input {
@@ -15,10 +17,6 @@ header {background-color: white;}
 	color: #282828;
 	background-color: #fefefe;
 }
-	
-	/* Modal Style */
-.modal {background-color: white;}
-.nav-icon {color: #161616;}
 	
 	/* Themes Showcase*/
 div.object {background-color: #f7f7f7;}
@@ -42,3 +40,9 @@ div.object:hover {background-color: #fcfcfc;}
 	background-color: #3e3d32;
 	color: white;
 }
+
+/* Scrollbar */
+
+::-webkit-scrollbar-track {background: #f1f1f1;}
+::-webkit-scrollbar-thumb {background: #999999;}
+::-webkit-scrollbar-thumb:hover {background: #666666;}
